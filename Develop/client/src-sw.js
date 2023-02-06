@@ -1,3 +1,5 @@
+// Service Worker File
+
 const { offlineFallback, warmStrategyCache } = require('workbox-recipes');
 const { CacheFirst } = require('workbox-strategies');
 const { registerRoute } = require('workbox-routing');
@@ -26,5 +28,19 @@ warmStrategyCache({
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
-// TODO: Implement asset caching
-registerRoute();
+// implementing asset caching
+registerRoute(
+    // callback function to filter cache requests
+    ({ request }) => ['style', 'script', 'worker'].includes(request.destination), // filtering css, js, and service worker file
+    new StaleWhileRevalidate({
+        cacheName: 'asset-cache',
+        plugins: [
+            new CacheableResponsePlugin({
+                statuses: [0, 200],
+            }),
+            new ExpirationPlugin({
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+            }),
+        ],
+    })
+);
