@@ -12,11 +12,18 @@ Progressive text-editor web application
 - [Installation](#installation-id)
 - [Usage](#usage-id)
 - [Links](#links-id)
+- [Screenshot](#screenshot-id)
 
 <br>
 
 ## <a id="description-id"></a>Description
-This project was created to demonstrate the installation and application of *Webpack plug-ins* to create a *Progressive Web Application* in the form of a Text Editor. WebPack plug-ins are npms that allow us to build modern applications using JavaScript objects installed here: https://webpack.js.org/concepts/plugins/. They are then linked to our projects by running the proper commands (see [Installation](#installation-id) steps). You can save your data for future use using *IndexDB*. IndexDB stores client side storage and Binary Large Objects. BLOB is a generic term used to describe the handling and storage of long strings of data by database management systems. One of these webpack plug-ins include *Manifest*, which manages the bundling of our code and creates a connection between webpack and our code. Manifest plug-in handles the downloading of modules in our browser. This application also uses *Service Workers*, which work in between the browser, our web app, and the network. Service workers allow us to use applications offline.
+This project was created to demonstrate the installation and application of *Webpack plug-ins* to create a *Progressive Web Application* in the form of a Text Editor. WebPack plug-ins are npms that allow us to build modern applications using JavaScript objects installed here: https://webpack.js.org/concepts/plugins/. They are then linked to our projects by running the proper commands (see [Installation](#installation-id) steps). 
+
+For this project, we want the user to be able to save their notes to their browser so that they their changes persist when leaving & returning to the text editor. For saving user data, we used *IndexDB*. Much like Local Storage, IndexDB saves user data inside the browser so it can be used when the user closes and opens the page. IndexDB also allows us to use our applications offline. IndexDB is able to fetch queries even when there is no internet connection. IndexDB stores client side storage and Binary Large Objects. BLOB is a generic term used to describe the handling and storage of long strings of data by database management systems. 
+
+One of these webpack plug-ins include *Manifest*, which manages the bundling of our code and creates a connection between webpack and our code. Manifest plug-in handles the downloading of modules in our browser. "JSON file that tells the browser about your Progressive Web App and how it should behave when installed on the user's desktop or mobile device". "Basic Metadata name & version and can also specify aspects of your extension's functionality (such as background scripts, content scripts, and browser actions"
+
+This application also uses *Service Workers*, which work in between the browser, our web app, and the network. Service workers allow us to use applications offline & set up push notifications. Service workers are JavaScript files that take over when there is no internet connection available. They handle data and network requests.
 
 Set up in a webpack.config.js file, we have imported the webpack plugin Manifest so that we can download the proper bundles necessary for setting up our application. Service workers are imported in src-sw.js files
 
@@ -33,8 +40,7 @@ Set up in a webpack.config.js file, we have imported the webpack plugin Manifest
 - Service Workers
 - BinaryLargeOBjects (BLOBs)
 ```
-
-Links for these concepts can be found <a href="#links-id">below</a>
+> Links for these concepts can be found <a href="#links-id">below</a>
 
 <br>
 
@@ -51,9 +57,9 @@ For downloading & building webpack plug-ins...
 <br>
 
 ```js
-Command line steps for initial build
+CLI Commands
 
-- npm run start:dev
+- npm run start
 - concurrently \"cd client && npm run build\" \"cd server && npm run server\"
 - npm run build && cd server && node server.js
 - cd server node server.js --ignore client
@@ -117,3 +123,8 @@ WebPack: https://webpack.js.org/<hr>
 IndexDB: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API<hr>
 Manifest: https://webpack.js.org/concepts/manifest/<hr>
 Service Workers: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+
+<br>
+
+## <a id="screenshot-id"></a>Screenshot
+![alt text](client/src/img/text-eddy-screenshot.png)
