@@ -16,18 +16,19 @@ Progressive text-editor web application
 
 <br>
 
+> <strong>Deployed Heroku link: https://text-eddy-1.herokuapp.com</strong>
+
+<br>
+
 ## <a id="description-id"></a>Description
-This project was created to demonstrate the installation and application of *Webpack plug-ins* to create a *Progressive Web Application* in the form of a Text Editor. WebPack plug-ins are npms that allow us to build modern applications using JavaScript objects installed here: https://webpack.js.org/concepts/plugins/. They are then linked to our projects by running the proper commands (see [Installation](#installation-id) steps). 
+This project was created to demonstrate the installation & application of *Webpack plug-ins* to create a *Progressive Web Application* in the form of a Text Editor (named 'Text Eddy'). WebPack plug-ins are npms that allow us to build modern applications using JavaScript objects installed here: https://webpack.js.org/concepts/plugins/. They are then linked to our projects by running the proper commands (see [Installation](#installation-id) steps). 
 
-For this project, we want the user to be able to save their notes to their browser so that they their changes persist when leaving & returning to the text editor. For saving user data, we used *IndexDB*. Much like Local Storage, IndexDB saves user data inside the browser so it can be used when the user closes and opens the page. IndexDB also allows us to use our applications offline. IndexDB is able to fetch queries even when there is no internet connection. IndexDB stores client side storage and Binary Large Objects. BLOB is a generic term used to describe the handling and storage of long strings of data by database management systems. 
+For this project, we want the user to be able to save their notes to their browser so that they their changes persist when leaving & returning to the text editor. For saving user data, we used *IndexDB*. Much like Local Storage, **IndexDB** saves user data inside the browser so it can be used when the user closes down & opens back up the page. The difference between the two is that IndexDB can save any & all types of JavaScript data while Local Storage can only store strings. IndexDB also allows us to use our applications offline. It's able to fetch queries even when there is no internet connection using *Service Workers*. **Service Workers** work in between the browser, our web app, & the network running internal functions that allow us to use applications offline & do nifty things like set up push notifications.
 
-One of these webpack plug-ins include *Manifest*, which manages the bundling of our code and creates a connection between webpack and our code. Manifest plug-in handles the downloading of modules in our browser. "JSON file that tells the browser about your Progressive Web App and how it should behave when installed on the user's desktop or mobile device". "Basic Metadata name & version and can also specify aspects of your extension's functionality (such as background scripts, content scripts, and browser actions"
+One final technology learned from this app was *Manifest*, a webpack plug-in that manages the bundling of our code & creates a connection between webpack & our code. **Manifest** handles the downloading of modules in our browser so we can save the application to our desktop. Set up in a webpack.config.js file, we have imported the webpack plug-in so that we can download the proper bundles necessary for setting up our application. Service workers are also imported in src-sw.js files.
 
-This application also uses *Service Workers*, which work in between the browser, our web app, and the network. Service workers allow us to use applications offline & set up push notifications. Service workers are JavaScript files that take over when there is no internet connection available. They handle data and network requests.
-
-Set up in a webpack.config.js file, we have imported the webpack plugin Manifest so that we can download the proper bundles necessary for setting up our application. Service workers are imported in src-sw.js files
-
-> <strong>Deployed Heroku link: </strong>
+### Storage Type Chart
+<img src="client/src/img/storagechart.png" alt="Chart of browser storage types and their comparisons" width="500"/>
 
 <br>
 
@@ -36,9 +37,8 @@ Set up in a webpack.config.js file, we have imported the webpack plugin Manifest
 ```js
 - Webpack & Webpack Plug-Ins
 - IndexDB
-- Manifest Plug-In
 - Service Workers
-- BinaryLargeOBjects (BLOBs)
+- Manifest Plug-In
 ```
 > Links for these concepts can be found <a href="#links-id">below</a>
 
@@ -110,14 +110,14 @@ const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 <br>
 
 ## <a id="usage-id"></a>Usage
-Upon arriving to the site (heroku link), you will see a basic text editor with name 'Jate' written in capital letters. Click anywhere in the text editor to begin typing, using all basic keyboard commands for input (<kbd>Enter</kbd> for new line, <kbd>Space</kbd> between letters, <kbd>Shift</kbd> for capital letters, etc). You may install onto your local machine by clicking the <button> Install </button> at the top left corner of the page. This will allow you to use the app offline. Your changes are also automatically saved with IndexDB. (<a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" target="_blank">Learn More</a>)
+Upon arriving to the site (https://text-eddy-1.herokuapp.com), you will see a basic text editor with name 'Jate' written in capital letters. Click anywhere in the text editor to begin typing, using all basic keyboard commands for input (<kbd>Enter</kbd> for new line, <kbd>Space</kbd> between letters, <kbd>Shift</kbd> for capital letters, etc). You may install onto your local machine by clicking the <button> Install </button> at the top left corner of the page. This will allow you to use the app offline. Your changes are also automatically saved with IndexDB. (<a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" target="_blank">Learn More</a>)
 
 <br>
 
 ## <a id="links-id"></a>Links
 The author is a developer with a GitHub account: https://github.com/ScottsC0de & email: **Scott5902@gmail.com**<br>
 <br>
-Heroku link: <hr>
+Heroku link: https://text-eddy-1.herokuapp.com<hr>
 GitHub project repo: https://github.com/ScottsC0de/text-eddy <hr>
 WebPack: https://webpack.js.org/<hr>
 IndexDB: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API<hr>
